@@ -7,7 +7,7 @@ function c(string) {
 
 var map = L.map('map').setView([22.5726, 88.3639], 4);
 L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token=QdGlh2lbNSoVle78fGkgh9JIPn4Pd3qmCzq6UhOuemq0OC0y20FPLwpSKtEGGgCT', {
-  maxZoom: 5,
+  maxZoom: 15,
   minZoom: 4
 }).addTo(map);
 async function main(city) {
