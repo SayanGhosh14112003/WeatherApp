@@ -25,7 +25,7 @@ async function main(city) {
         }
         const data = await response.json();
         let image = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
-        map.setView([data.coord.lat, data.coord.lon], 10);
+        map.setView([data.coord.lat, data.coord.lon], 9);
         marker =  L.marker([data.coord.lat, data.coord.lon]).bindPopup("<img src=" + image + "><span><h3>" + c(data.weather[0].description) + "</h3></span><hr><h2>" + data.name+"("+data.sys.country+")"+ "</h2><h4>Temperature: " + (data.main.temp - 273).toFixed(1) + "°C</h4><h4>Humidity: " + data.main.humidity + "%</h4><h4>Wind: " + (data.wind.speed * 3.6).toFixed(1) + " Km/h</h4>")
         marker.addTo(map).openPopup();
     }catch(err){
@@ -39,7 +39,7 @@ async function main2(lat,lng) {
     map.removeLayer(marker)
         const data = await response.json();
         let image = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
-        map.setView([data.coord.lat, data.coord.lon], 10);
+        map.setView([data.coord.lat, data.coord.lon], 9);
         marker = L.marker([data.coord.lat, data.coord.lon]).bindPopup("<img src=" + image + "><span><h3>" + c(data.weather[0].description) + "</h3></span><hr><h2>" + data.name+"("+data.sys.country+")"+ "</h2><h4>Temperature: " + (data.main.temp - 273).toFixed(1) + "°C</h4><h4>Humidity: " + data.main.humidity + "%</h4><h4>Wind: " + (data.wind.speed * 3.6).toFixed(1) + " Km/h</h4>")
         marker.addTo(map).openPopup();
     }catch(err){
