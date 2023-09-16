@@ -23,7 +23,7 @@ async function main(city) {
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=886705b4c1182eb1c69f28eb8c520e20`;
   try{
     const response = await fetch(url);
-    map.removeLayer(marker)
+         map.removeLayer(marker)
         if (response.status === 404) {
           throw new Error('Location not found!');
         }
@@ -45,14 +45,13 @@ async function main(city) {
           var o3=data1.O3.concentration;
         }
         catch(err){
-          
+            
         }
         //------------
         var {hou,min}=secondsToHoursMinutes(data.timezone);
         let image = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
         map.setView([data.coord.lat, data.coord.lon], 9);
-        var time=new Date();
-        marker =  L.marker([data.coord.lat, data.coord.lon]).bindPopup("<img src=" + image + "><span><h3>" + c(data.weather[0].description) + "</h3></span><hr><h2>" + data.name+"("+data.sys.country+")</h2><h4>Temperature: " + (data.main.temp - 273).toFixed(1) + "°C</h4><h4>Humidity: " + data.main.humidity + "%</h4><h4>Wind: " + (data.wind.speed * 3.6).toFixed(1) + " Km/h</h4> <h4>AQI: "+aqi+"</h4><h4>(PM10: "+(pm10).toFixed(1)+" No2: "+(no2).toFixed(1)+" O3: "+(o3).toFixed(1)+" )</h4><h4>Time: "+time+"</h4>")
+        marker =  L.marker([data.coord.lat, data.coord.lon]).bindPopup("<img src=" + image + "><span><h3>" + c(data.weather[0].description) + "</h3></span><hr><h2>" + data.name+"("+data.sys.country+")</h2><h4>Temperature: " + (data.main.temp - 273).toFixed(1) + "°C</h4><h4>Humidity: " + data.main.humidity + "%</h4><h4>Wind: " + (data.wind.speed * 3.6).toFixed(1) + " Km/h</h4> <h4>AQI: "+aqi+"</h4><h4>(PM10: "+(pm10).toFixed(1)+" No2: "+(no2).toFixed(1)+" O3: "+(o3).toFixed(1)+" )</h4><h4>Timezone: GMT "+hou+":"+min+"</h4>")
         marker.addTo(map).openPopup();
     }catch(err){
       alert(err);
@@ -87,8 +86,7 @@ async function main2(lat,lng) {
         var {hou,min}=secondsToHoursMinutes(data.timezone);
         let image = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
         map.setView([data.coord.lat, data.coord.lon], 9);
-        var time=new Date();
-        marker =  L.marker([data.coord.lat, data.coord.lon]).bindPopup("<img src=" + image + "><span><h3>" + c(data.weather[0].description) + "</h3></span><hr><h2>" + data.name+"("+data.sys.country+")</h2><h4>Temperature: " + (data.main.temp - 273).toFixed(1) + "°C</h4><h4>Humidity: " + data.main.humidity + "%</h4><h4>Wind: " + (data.wind.speed * 3.6).toFixed(1) + " Km/h</h4> <h4>AQI: "+aqi+"</h4><h4>(PM10: "+(pm10).toFixed(1)+" No2: "+(no2).toFixed(1)+" O3: "+(o3).toFixed(1)+" )</h4><h4>Time: "+time+"</h4>")
+        marker =  L.marker([data.coord.lat, data.coord.lon]).bindPopup("<img src=" + image + "><span><h3>" + c(data.weather[0].description) + "</h3></span><hr><h2>" + data.name+"("+data.sys.country+")</h2><h4>Temperature: " + (data.main.temp - 273).toFixed(1) + "°C</h4><h4>Humidity: " + data.main.humidity + "%</h4><h4>Wind: " + (data.wind.speed * 3.6).toFixed(1) + " Km/h</h4> <h4>AQI: "+aqi+"</h4><h4>(PM10: "+(pm10).toFixed(1)+" No2: "+(no2).toFixed(1)+" O3: "+(o3).toFixed(1)+" )</h4><h4>Timezone: GMT "+hou+":"+min+"</h4>")
         marker.addTo(map).openPopup();
     }catch(err){
       console.log(err);
