@@ -97,7 +97,6 @@ btn.addEventListener('click', async() => {
     main(search.value);
   }catch(err){}
 })
-
 map.on('click', function(e){
   var coord = e.latlng;
   var lat = coord.lat;
