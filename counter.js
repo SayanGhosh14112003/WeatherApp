@@ -20,7 +20,7 @@ L.tileLayer('https://{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-tok
   minZoom: 4
 }).addTo(map);
 async function main(city) {
-  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=886705b4c1182eb1c69f28eb8c520e20`;
+  const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=6cbb249dd730887207251f1f4e1f7bf1`;
   try{
     const response = await fetch(url);
          map.removeLayer(marker)
@@ -58,7 +58,7 @@ async function main(city) {
     };
 }
 async function main2(lat,lng) {
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=886705b4c1182eb1c69f28eb8c520e20`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=6cbb249dd730887207251f1f4e1f7bf1`;
   try{
     const response = await fetch(url);
     map.removeLayer(marker)
